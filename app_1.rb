@@ -19,7 +19,7 @@ get '/about' do
 end
 
 post '/cart' do
-	#@orders = params[:orders]
+	
 	orders_input = params[:orders]
 	@items = parse_orders_input orders_input
 
@@ -27,11 +27,12 @@ post '/cart' do
 		#id, cnt
 		item[0] = Product.find(item[0])
 	end
-	
+
     erb :cart
 end
 
-def parse_orders_input orders_input
+#orders_input 
+def parse_orders_input orders_input  
 	s1 = orders_input.split(/,/)
 
 	arr = []
