@@ -19,9 +19,10 @@ get '/about' do
 end
 
 post '/cart' do
+	#@orders = params[:orders]
 	orders_input = params[:orders]
 	@orders = parse_orders_input orders_input
-    erb "Debug #{@orders}"
+    erb :cart
 end
 
 def parse_orders_input orders_input
@@ -39,7 +40,7 @@ def parse_orders_input orders_input
 
 		arr2 = [id, cnt]
 
-		arr2.push arr2
+		arr.push arr2
 	end
 
 	return arr
