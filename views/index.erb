@@ -1,0 +1,35 @@
+<h2>Welcome To Pizza Shop</h2>
+
+<div class="row">
+
+	<% @products.each do |pr| %>
+	<div class="col-md-3">
+		<div>
+			<%= pr.title %>">
+		</div>
+
+		<div>
+			<img src="<%= pr.path_to_image %>" width="200" height="200"/>
+		</div>
+
+		<div>
+			<%= pr.description %>">
+		</div>
+
+		<div>
+			Cost: <%= pr.price %>"> $
+		</div>
+
+		<div>
+			Size: <%= pr.size %>"> sm
+		</div>
+
+		<div>
+			<button class="btn btn-sm btn-success" onclick="add_to_cart(<%= pr.id %>)">Add To Cart</button>
+		</div>
+	</div>				
+	<% end %>
+
+</div>
+
+<button type="button" class="btn btn-primary btn-lg" onclick="something()"> Click me! </button>
