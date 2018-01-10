@@ -21,10 +21,15 @@ get '/about' do
 	erb :about
 end
 
+post '/place_order' do
+	@order = Order.create params[:order]
+	erb "Thank for sale!!!"
+end
+
 post '/cart' do
 	
-	orders_input = params[:orders]
-	@items = parse_orders_input orders_input
+	@orders_input = params[:orders]
+	@items = parse_orders_input @orders_input
 
 	@items.each do |item|
 		#id, cnt
@@ -34,9 +39,10 @@ post '/cart' do
     erb :cart
 end
 
-#orders_input 
-def parse_orders_input orders_input  
-	s1 = orders_input.split(/,/)
+#undefined method `split' for nil:NilClass
+# add to_s !!!!!!!!!
+def parse_orders_input orders_input
+	s1 = orders_input.to_s.split(/,/)
 
 	arr = []
 
